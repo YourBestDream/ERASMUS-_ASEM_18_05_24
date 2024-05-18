@@ -16,12 +16,16 @@ def create_app():
     CORS(app, resources={r"/*": {"origins": "*"}})
     db.init_app(app)
 
+    from . import models
+    
     from .assistant import assistant
     from .feed import feed
     from .forum import forum
+    from .auth import auth
 
     app.register_blueprint(assistant, url_prefix = '/')
     app.register_blueprint(feed, url_prefix = '/')
     app.register_blueprint(forum, url_prefix = '/')
+    app.register_blueprint(auth, url_prefix='/')
     
     return app
