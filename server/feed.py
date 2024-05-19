@@ -26,7 +26,7 @@ def get_opportunities():
             }
         )
     
-    return jsonify(opportunity_list), 200
+    return jsonify({'opportunities':opportunity_list}), 200
 
 @feed.route('/add', methods=['POST'])
 def add_opportunity():
