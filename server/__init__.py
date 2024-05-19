@@ -19,11 +19,9 @@ def create_app():
 
     from . import models
     
-    from .assistant import assistant
     from .feed import feed
     from .forum import forum
 
-    app.register_blueprint(assistant, url_prefix = '/')
     app.register_blueprint(feed, url_prefix = '/')
     app.register_blueprint(forum, url_prefix = '/')
     
